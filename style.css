@@ -1,0 +1,412 @@
+@font-face {
+  font-family: "BookkMyungjo-Bd";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkMyungjo-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 기존에 작성한 애니메이션에 opacity 변화 추가 */
+@keyframes fadeInBottomRightWithOpacity {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0) scale(0.5); /* 오른쪽에서 시작, 크기를 0.5로 설정 */
+    transform-origin: top right; /* 확대가 오른쪽 상단(10시 방향)으로 발생하도록 설정 */
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1); /* 원래 위치로 이동하면서 크기를 1로 설정 */
+  }
+}
+
+.animate__fadeInBottomRightWithOpacity {
+  animation-name: fadeInBottomRightWithOpacity;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* 약간 아래에서 시작 */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* 자연스럽게 원래 위치로 이동 */
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px); /* 오른쪽에서 시작 */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* 원래 위치로 이동 */
+  }
+}
+
+.animate__slideInFromRight {
+  animation-name: slideInFromRight;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes fadeInBottomRight {
+  from {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0) scale(0.5); /* 오른쪽에서 시작, 크기를 0.5로 설정 */
+    transform-origin: top right; /* 확대가 오른쪽 상단(10시 방향)으로 발생하도록 설정 */
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1); /* 원래 위치로 이동하면서 크기를 1로 설정 */
+  }
+}
+
+.animate__fadeInBottomRight {
+  animation-name: fadeInBottomRight;
+  animation-duration: 1.5s; /* 1.5초 동안 애니메이션 */
+  animation-timing-function: ease-out; /* 부드러운 속도 조절 */
+}
+
+@keyframes fadeOutPage {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px); /* 약간 아래로 내려가며 사라짐 */
+  }
+}
+
+.animate__fadeOutBottomLeft {
+  animation-name: fadeOutBottomLeft;
+}
+
+.html,
+.body {
+  width: 100%;
+  height: 100%;
+}
+
+.Home2 {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.MainPage1,
+.MainPage2,
+.MainPage3,
+.MainPage4,
+.MainPage5,
+.MainPage6,
+.MainPage7,
+.MainPage8,
+.MainPage9 {
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* 기본 상태는 투명 */
+  transition: opacity 1s ease-out;
+}
+
+.MainPage1,
+.MainPage2,
+.MainPage3,
+.MainPage4,
+.MainPage5,
+.MainPage6,
+.MainPage7,
+.MainPage8,
+.MainPage9 .visible {
+  opacity: 1; /* .visible 클래스가 추가되면 나타남 */
+}
+
+.Home {
+  display: block; /* 기본적으로 보이게 설정 */
+  position: relative; /* 절대 위치 지정 */
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.Topbar {
+  position: fixed; /* 상단에 고정 */
+  top: 0; /* 화면 상단에 고정 */
+  left: 0;
+  right: 0;
+  z-index: 1000; /* 다른 요소보다 위에 표시되도록 설정 */
+  background-color: black; /* 배경색 설정 (필요시) */
+}
+
+.Title {
+  color: white;
+  font-family: "BookkMyungjo-Bd";
+  font-size: 30px;
+  margin-top: 40px;
+  margin-left: 50px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.Menu {
+  color: white;
+  font-family: "BookkMyungjo-Bd";
+  font-size: 16px;
+  padding-left: 70px;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* 크기 확대 전환 */
+}
+
+.Menu:hover {
+  transform: scale(1.2); /* 크기 확대 */
+}
+
+.Tablist {
+  padding-left: 800px;
+  display: inline-block;
+}
+
+/* Hometext와 Hometext2 페이드 인 애니메이션 */
+.Hometext {
+  color: white;
+  font-family: "Pretendard-Regular";
+  font-size: 250px;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  margin-top: 200px;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.Hometext2 {
+  color: #aeaeae;
+  font-family: "Pretendard-Regular";
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  margin: 30px auto;
+  line-height: 1.6em;
+  letter-spacing: -0.05em;
+  text-align: center;
+  word-break: keep-all;
+  opacity: 0;
+  animation: fadeIn 2s forwards 1s; /* 1초 후 시작 */
+}
+
+/* Start 버튼 - 기본 상태 */
+.Start {
+  color: white;
+  background-color: black;
+  font-family: "Pretendard-Regular";
+  font-size: 26px;
+  width: 230px;
+  height: 70px;
+  border: 1px solid white;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+  cursor: pointer; /* 마우스 커서 변경 */
+  opacity: 0; /* 초기값 */
+  transform: scale(0.8); /* 작게 시작 */
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* hover 효과 전환 */
+}
+
+/* Start 버튼 등장 애니메이션 */
+.Start.active {
+  opacity: 1;
+  transform: scale(1); /* 원래 크기 */
+  transition: opacity 1s ease, transform 1s ease; /* 자연스럽게 나타남 */
+}
+
+/* Hover 상태 */
+.Start:hover {
+  transform: scale(1.1); /* 확대 */
+}
+
+/* 버튼 클릭 시 색깔 변경 (자연스럽게) */
+.Start.clicked {
+  background-color: white; /* 배경색 변경 */
+  color: black; /* 글자 색 변경 */
+  transition: background-color 0.3s ease, color 0.3s ease; /* 자연스러운 색 전환 */
+}
+
+.Content1 {
+  display: inline-block;
+}
+
+.planettitle {
+  font-family: "Pretendard-Regular";
+  color: white;
+  font-size: 80px;
+  margin-top: 250px;
+  margin-left: 70px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: slideInFromRight 2s forwards 1s; /* 1초 후 시작 */
+}
+
+.Whatplanet {
+  color: #aeaeae;
+  font-family: "Pretendard-Regular";
+  font-size: 13px;
+  width: 320px;
+  height: auto;
+  margin-left: 70px;
+  line-height: 1.6em;
+  letter-spacing: -0.05em;
+  word-break: keep-all;
+  opacity: 0;
+  animation: slideInFromRight 2s forwards 1s; /* 1초 후 시작 */
+}
+
+.Whatplanet2 {
+  margin-top: 60px;
+  margin-left: 70px;
+  width: 320px;
+  height: auto;
+  opacity: 0;
+  animation: slideInFromRight 2s forwards 1s; /* 1초 후 시작 */
+}
+
+.Standard1 {
+  margin-bottom: 30px;
+}
+
+.Sign {
+  color: white;
+  font-size: 15px;
+  font-family: "Pretendard-Regular";
+  width: 100px;
+  height: auto;
+  display: inline-block;
+}
+
+.Components {
+  color: white;
+  font-size: 15px;
+  font-family: "Pretendard-Regular";
+  width: 100px;
+  height: auto;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.WSign {
+  color: white;
+  font-size: 13px;
+  font-family: "Pretendard-Regular";
+  width: 100px;
+  height: auto;
+  display: inline-block;
+}
+
+.WComponents {
+  color: white;
+  font-size: 13px;
+  font-family: "Pretendard-Regular";
+  width: 100px;
+  height: auto;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.Content2 {
+  margin-top: 50px;
+  margin-left: 40px;
+  display: inline-block;
+  position: absolute;
+  width: 600px;
+  height: auto;
+  opacity: 0; /* 처음에는 보이지 않도록 설정 */
+  animation: fadeInBottomRight 3s forwards; /* 애니메이션을 적용 */
+  animation: fadeInBottomRightWithOpacity 3s forwards;
+}
+
+.Content3 {
+  display: inline-block;
+  position: absolute;
+  margin-left: 800px;
+  margin-top: 250px;
+}
+
+.imgplanet {
+  width: 320px;
+  height: auto;
+  padding-bottom: 30px;
+  opacity: 0;
+  animation: slideInFromRight 2s forwards 1s; /* 1초 후 시작 */
+  display: inline-block;
+}
+
+.Whatplanet3 {
+  color: #aeaeae;
+  font-family: "Pretendard-Regular";
+  font-size: 13px;
+  width: 320px;
+  height: auto;
+  line-height: 1.6em;
+  letter-spacing: -0.05em;
+  word-break: keep-all;
+  opacity: 0;
+  animation: slideInFromRight 2s forwards 1s; /* 1초 후 시작 */
+}
+
+.Satellite {
+  color: rgb(37, 37, 37);
+  background-color: rgb(123, 123, 123);
+  font-family: "Pretendard-Regular";
+  font-size: 20px;
+  width: 320px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* 마우스 커서 변경 */
+  margin-top: 30px;
+  opacity: 0; /* 처음에는 보이지 않게 */
+  transform: scale(0.9); /* 애니메이션 시작 시 약간 축소된 상태 */
+  transition: opacity 1s ease, transform 0.3s ease; /* 애니메이션 효과 */
+}
+
+/* 애니메이션 끝난 후 보이도록 */
+.Satellite.show {
+  opacity: 1;
+  transform: scale(1); /* 애니메이션 후 기본 크기 */
+}
+
+/* Satellite 버튼에 마우스를 올렸을 때 확대 효과 */
+.Satellite:hover {
+  transform: scale(1.1); /* 마우스를 올리면 10% 확대 */
+}
+
+/* 페이드인 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px); /* 약간 아래에서 위로 이동 */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* 자연스럽게 제자리로 이동 */
+  }
+}
